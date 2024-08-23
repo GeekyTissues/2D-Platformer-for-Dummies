@@ -1,2 +1,2 @@
-# 2D Platformer for Dummies
- Computer Game Development
+# 2D-Platformer-for-Dummies
+ Computer Game Development Project
