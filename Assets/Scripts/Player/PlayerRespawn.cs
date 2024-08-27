@@ -37,5 +37,11 @@ public class PlayerRespawn : MonoBehaviour
             collision.GetComponent<Collider2D>().enabled = false;
             collision.GetComponent<Animator>().SetTrigger("Appear");
         }
+
+        if (collision.transform.tag == "FallZone")
+        {
+            CheckRespawn();
+            playerHealth.TakeDamage(1);
+        }
     }
 }
