@@ -6,13 +6,14 @@ public class PlayerRespawn : MonoBehaviour
 {
     [SerializeField] private AudioClip checkpointSound;
     private Transform currentCheckpoint;
+    private Transform startingPoint;
     private PlayerHealth playerHealth;
     private UIManager uiManager;
 
     private void Awake()
     {
         playerHealth = GetComponent<PlayerHealth>();
-        uiManager = FindObjectOfType<UIManager>();
+        uiManager = FindObjectOfType<UIManager>()
     }
 
     public void CheckRespawn()
@@ -38,6 +39,7 @@ public class PlayerRespawn : MonoBehaviour
             collision.GetComponent<Animator>().SetTrigger("Appear");
         }
 
+        //Takes the player back to last checkpoint
         if (collision.transform.tag == "FallZone")
         {
             CheckRespawn();
