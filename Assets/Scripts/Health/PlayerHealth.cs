@@ -46,11 +46,6 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        
-    }
-
     private IEnumerator Invulnerability()
     {
         Physics2D.IgnoreLayerCollision(10, 11, true);
