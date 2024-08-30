@@ -6,6 +6,7 @@ public class PlayerRespawn : MonoBehaviour
 {
     [SerializeField] private AudioClip checkpointSound;
     private Transform currentCheckpoint;
+    private Transform startingPoint;
     private PlayerHealth playerHealth;
     private UIManager uiManager;
 
@@ -36,6 +37,13 @@ public class PlayerRespawn : MonoBehaviour
             currentCheckpoint = collision.transform; //Stores Checkpoint
             collision.GetComponent<Collider2D>().enabled = false;
             collision.GetComponent<Animator>().SetTrigger("Appear");
+        }
+
+        //Takes the player back to last checkpoint
+        if (collision.transform.tag == "FallZone")
+        {
+            CheckRespawn();
+            playerHealth.TakeDamage(1);
         }
     }
 }
