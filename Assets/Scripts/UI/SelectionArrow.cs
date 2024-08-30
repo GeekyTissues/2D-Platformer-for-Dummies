@@ -11,7 +11,7 @@ public class SelectionArrow : MonoBehaviour
 
     private RectTransform rect;
     private int currentPosition;
-
+    
     private void Awake()
     {
         rect = GetComponent<RectTransform>();
