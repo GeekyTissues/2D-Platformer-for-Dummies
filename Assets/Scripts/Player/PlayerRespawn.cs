@@ -13,7 +13,7 @@ public class PlayerRespawn : MonoBehaviour
     private void Awake()
     {
         playerHealth = GetComponent<PlayerHealth>();
-        uiManager = FindObjectOfType<UIManager>()
+        uiManager = FindObjectOfType<UIManager>();
     }
 
     public void CheckRespawn()
