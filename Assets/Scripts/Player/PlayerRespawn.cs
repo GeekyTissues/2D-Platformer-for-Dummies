@@ -5,27 +5,21 @@ using UnityEngine;
 public class PlayerRespawn : MonoBehaviour
 {
     [SerializeField] private AudioClip checkpointSound;
+    [SerializeField] Transform startingPoint;
     private Transform currentCheckpoint;
-    private Transform startingPoint;
     private PlayerHealth playerHealth;
     private UIManager uiManager;
 
     private void Awake()
     {
+        transform.position = startingPoint.position;
+        currentCheckpoint = startingPoint;
         playerHealth = GetComponent<PlayerHealth>();
         uiManager = FindObjectOfType<UIManager>();
     }
 
     public void CheckRespawn()
     {
-        if (currentCheckpoint == null)
-        {
-            uiManager.GameOver();
-
-            return;
-        }
-
-            
         transform.position = currentCheckpoint.position;
         playerHealth.Respawn();
     }
@@ -42,8 +36,11 @@ public class PlayerRespawn : MonoBehaviour
         //Takes the player back to last checkpoint
         if (collision.transform.tag == "FallZone")
         {
-            CheckRespawn();
             playerHealth.TakeDamage(1);
+            if (playerHealth.currentHealth > 0)
+            {
+                transform.position = currentCheckpoint.position;
+            }
         }
     }
 }

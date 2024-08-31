@@ -10,11 +10,18 @@ public class UIManager : MonoBehaviour
 
     [Header("Pause")]
     [SerializeField] private GameObject pauseScreen;
+    
+    private GameObject player;
+    private PlayerRespawn playerRespawn;
+    private PlayerHealth health;
 
     private void Awake()
     {
         gameOverScreen.SetActive(false);
         pauseScreen.SetActive(false);
+        playerRespawn = gameOverScreen.GetComponent<PlayerRespawn>();
+        health = gameOverScreen.GetComponent<PlayerHealth>();
+        player = GameObject.FindWithTag("Player");
     }
 
     private void Update()
@@ -40,10 +47,17 @@ public class UIManager : MonoBehaviour
         SoundManager.instance.PlaySound(gameOverSound);
     }
 
+    public void ReloadCheckpoint()
+    {
+        gameOverScreen.SetActive(false);
+        playerRespawn.CheckRespawn();
+    }
+
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
     public void MainMenu()
     {
         SceneManager.LoadScene(0);

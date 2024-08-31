@@ -16,6 +16,7 @@ public class PlayerHealth : MonoBehaviour
 
     private Animator anim;
     private PlayerRespawn respawn;
+    private UIManager uiManager;
 
     private void Awake()
     {
@@ -23,6 +24,7 @@ public class PlayerHealth : MonoBehaviour
         spriteRend = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         respawn = GetComponent<PlayerRespawn>();
+        uiManager = FindObjectOfType<UIManager>();
     }
 
     public void TakeDamage(float _damage)
@@ -41,7 +43,7 @@ public class PlayerHealth : MonoBehaviour
                 anim.SetTrigger("die");
                 GetComponent<PlayerMovement>().enabled = false;
                 dead = true;
-                respawn.CheckRespawn();
+                uiManager.GameOver();
             }
         }
     }
