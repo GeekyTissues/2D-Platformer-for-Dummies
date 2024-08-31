@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpPower;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private LayerMask platformLayer;
+    [SerializeField] private LayerMask playerLayer;
 
     private Rigidbody2D body;
     private BoxCollider2D boxCollider;
@@ -16,12 +17,17 @@ public class PlayerMovement : MonoBehaviour
 
     private float horizontalInput;
 
+    [Header("SFX")]
+    [SerializeField] private AudioClip jumpSound;
+    [SerializeField] private AudioClip landSound;
+    [SerializeField] private AudioClip runningSound;
+
     private void Awake()
     {
         //Grab references
         body = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
-        anim = GetComponent<Animator>();   
+        anim = GetComponent<Animator>();
     }
 
     private void Update()
@@ -44,12 +50,17 @@ public class PlayerMovement : MonoBehaviour
         {
             Jump();
             anim.Play("jump");
+            if (Input.GetKeyDown(KeyCode.Space) && (IsGrounded()||IsPlatformed()))
+            {
+                SoundManager.instance.PlaySound(jumpSound);
+            }
         }
 
         //Set animator parameters
         anim.SetBool("run", horizontalInput != 0);
         anim.SetBool("grounded", IsGrounded());
         anim.SetBool("platformed", IsPlatformed());
+        
     }
 
     private void Jump()
@@ -73,4 +84,19 @@ public class PlayerMovement : MonoBehaviour
         RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.size, 0, Vector2.down, 1f, platformLayer);
         return raycastHit.collider != null;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.transform.tag == "Platform")
+        {
+           
+        }
+    }
+
+    #region SFX
+    private void RunningSound()
+    {
+        SoundManager.instance.PlaySound(runningSound);
+    }
+    #endregion
 }

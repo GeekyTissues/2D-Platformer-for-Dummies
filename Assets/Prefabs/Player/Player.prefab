@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1842269061790096244}
   - component: {fileID: 5807200917191100249}
   - component: {fileID: 8147258222803021341}
+  - component: {fileID: 1454479124135850006}
   - component: {fileID: 7918173059225880539}
   - component: {fileID: 530695423066145628}
   m_Layer: 7
@@ -63,7 +64,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &2145868558266388395
 BoxCollider2D:
@@ -74,7 +75,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 3574639086349442716}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 5e3306586faec8a4fa58d1e5e0d904f2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -177,6 +178,7 @@ MonoBehaviour:
   startingHealth: 3
   iFrameDuration: 2
   noOfFlashes: 3
+  takeDamageSound: {fileID: 0}
 --- !u!114 &8147258222803021341
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,6 +199,25 @@ MonoBehaviour:
   platformLayer:
     serializedVersion: 2
     m_Bits: 64
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  jumpSound: {fileID: 0}
+  landSound: {fileID: 0}
+  runningSound: {fileID: 0}
+--- !u!114 &1454479124135850006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3574639086349442716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71fe7fe138b144c4da5ad5b238ce80fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackCooldown: 0
 --- !u!114 &7918173059225880539
 MonoBehaviour:
   m_ObjectHideFlags: 0
