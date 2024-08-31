@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class PlayerRespawn : MonoBehaviour
 {
+    [Header("Manual Set References")]
     [SerializeField] private AudioClip checkpointSound;
     [SerializeField] Transform startingPoint;
+
+    [Header("References")]
     private Transform currentCheckpoint;
     private PlayerHealth playerHealth;
     private UIManager uiManager;
@@ -41,6 +44,11 @@ public class PlayerRespawn : MonoBehaviour
             {
                 transform.position = currentCheckpoint.position;
             }
+        }
+
+        if (collision.transform.tag == "FinishPoint")
+        {
+            uiManager.LevelCompleted();
         }
     }
 }

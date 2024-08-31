@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,6 +8,7 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField] private GameObject gameOverScreen;
     [SerializeField] private AudioClip gameOverSound;
+    [SerializeField] private GameObject lvlCompleteScreen;
 
     [Header("Pause")]
     [SerializeField] private GameObject pauseScreen;
@@ -19,6 +21,7 @@ public class UIManager : MonoBehaviour
     {
         gameOverScreen.SetActive(false);
         pauseScreen.SetActive(false);
+        lvlCompleteScreen.SetActive(false);
         playerRespawn = gameOverScreen.GetComponent<PlayerRespawn>();
         health = gameOverScreen.GetComponent<PlayerHealth>();
         player = GameObject.FindWithTag("Player");
@@ -90,6 +93,18 @@ public class UIManager : MonoBehaviour
     public void MusicVolume()
     {
         SoundManager.instance.ChangeSoundVolume(0.2f);
+    }
+    #endregion
+
+    #region Level Completed
+    public void LevelCompleted()
+    {
+        lvlCompleteScreen.SetActive(true);
+    }
+
+    public void Continue()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
     }
     #endregion
 }
