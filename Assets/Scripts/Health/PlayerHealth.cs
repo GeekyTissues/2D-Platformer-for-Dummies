@@ -14,8 +14,12 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private int noOfFlashes;
     private SpriteRenderer spriteRend;
 
+    [Header("SFX")]
+    [SerializeField] private AudioClip takeDamageSound;
+
     private Animator anim;
     private PlayerRespawn respawn;
+    private UIManager uiManager;
 
     private void Awake()
     {
@@ -23,6 +27,7 @@ public class PlayerHealth : MonoBehaviour
         spriteRend = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         respawn = GetComponent<PlayerRespawn>();
+        uiManager = FindObjectOfType<UIManager>();
     }
 
     public void TakeDamage(float _damage)
@@ -41,14 +46,9 @@ public class PlayerHealth : MonoBehaviour
                 anim.SetTrigger("die");
                 GetComponent<PlayerMovement>().enabled = false;
                 dead = true;
-                respawn.CheckRespawn();
+                uiManager.GameOver();
             }
         }
-    }
-
-    private void Update()
-    {
-        
     }
 
     private IEnumerator Invulnerability()
@@ -78,4 +78,11 @@ public class PlayerHealth : MonoBehaviour
         StartCoroutine(Invulnerability());
         GetComponent<PlayerMovement>().enabled = true;
     }
+
+    #region SFX
+    private void TakeDamageSound()
+    {
+        SoundManager.instance.PlaySound(takeDamageSound);
+    }
+    #endregion
 }

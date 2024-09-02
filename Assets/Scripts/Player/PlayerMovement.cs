@@ -9,17 +9,25 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpPower;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private LayerMask platformLayer;
+    [SerializeField] private LayerMask playerLayer;
 
     private Rigidbody2D body;
     private BoxCollider2D boxCollider;
+    private Animator anim;
 
     private float horizontalInput;
+
+    [Header("SFX")]
+    [SerializeField] private AudioClip jumpSound;
+    [SerializeField] private AudioClip landSound;
+    [SerializeField] private AudioClip runningSound;
 
     private void Awake()
     {
         //Grab references
         body = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
+        anim = GetComponent<Animator>();
     }
 
     private void Update()
@@ -27,21 +35,32 @@ public class PlayerMovement : MonoBehaviour
         horizontalInput = Input.GetAxis("Horizontal");
 
         //Moving left and right
-        body.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, body.velocity.y);
+        body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
 
         if (horizontalInput > 0.01f)
         {
-            transform.localScale = Vector3.one;
+            transform.localScale = new Vector3(5,5,5);
         }
         else if (horizontalInput < -0.01f)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
+            transform.localScale = new Vector3(-5, 5, 5);
         }
 
         if (Input.GetKey(KeyCode.Space))
         {
             Jump();
+            anim.Play("jump");
+            if (Input.GetKeyDown(KeyCode.Space) && (IsGrounded()||IsPlatformed()))
+            {
+                SoundManager.instance.PlaySound(jumpSound);
+            }
         }
+
+        //Set animator parameters
+        anim.SetBool("run", horizontalInput != 0);
+        anim.SetBool("grounded", IsGrounded());
+        anim.SetBool("platformed", IsPlatformed());
+        
     }
 
     private void Jump()
@@ -52,17 +71,32 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    //Does not work if scale is not 1,1,1
+    
     private bool IsGrounded()
     {
-        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.size, 0, Vector2.down, 0.1f, groundLayer);
+        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.size, 0, Vector2.down, 1f, groundLayer);
         return raycastHit.collider != null;
         
     }
 
     private bool IsPlatformed()
     {
-        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.size, 0, Vector2.down, 0.1f, platformLayer);
+        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.size, 0, Vector2.down, 1f, platformLayer);
         return raycastHit.collider != null;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.transform.tag == "Platform")
+        {
+           
+        }
+    }
+
+    #region SFX
+    private void RunningSound()
+    {
+        SoundManager.instance.PlaySound(runningSound);
+    }
+    #endregion
 }
