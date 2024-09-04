@@ -55,6 +55,16 @@ public class PlayerMovement : MonoBehaviour
                 SoundManager.instance.PlaySound(jumpSound);
             }
         }
+        
+        if (Input.GetKey(KeyCode.Joystick1Button1))
+        {
+            Jump();
+            anim.Play("jump");
+            if (Input.GetKeyDown(KeyCode.Joystick1Button1) && (IsGrounded() || IsPlatformed()))
+            {
+                SoundManager.instance.PlaySound(jumpSound);
+            }
+        }
 
         //Set animator parameters
         anim.SetBool("run", horizontalInput != 0);
