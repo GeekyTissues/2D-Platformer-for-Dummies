@@ -10,6 +10,7 @@ TagManager:
   - Checkpoint
   - FallZone
   - FinishPoint
+  - StartingPoint
   layers:
   - Default
   - TransparentFX

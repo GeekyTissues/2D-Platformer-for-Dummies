@@ -53,7 +53,7 @@ public class UIManager : MonoBehaviour
     public void ReloadCheckpoint()
     {
         gameOverScreen.SetActive(false);
-        playerRespawn.CheckRespawn();
+        
     }
 
     public void Restart()

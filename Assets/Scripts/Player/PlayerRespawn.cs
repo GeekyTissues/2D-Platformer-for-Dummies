@@ -34,16 +34,17 @@ public class PlayerRespawn : MonoBehaviour
             currentCheckpoint = collision.transform; //Stores Checkpoint
             collision.GetComponent<Collider2D>().enabled = false;
             collision.GetComponent<Animator>().SetTrigger("Appear");
+            SoundManager.instance.PlaySound(checkpointSound);   
         }
 
         //Takes the player back to last checkpoint
         if (collision.transform.tag == "FallZone")
         {
-            playerHealth.TakeDamage(1);
             if (playerHealth.currentHealth > 0)
             {
                 transform.position = currentCheckpoint.position;
             }
+            playerHealth.TakeDamage(1);
         }
 
         if (collision.transform.tag == "FinishPoint")
