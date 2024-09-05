@@ -19,8 +19,6 @@ public class EnemyHealth : MonoBehaviour
 
     private Animator anim;
 
-    private float lifetime = 3;
-
     private void Awake()
     {
         currentHealth = startingHealth;

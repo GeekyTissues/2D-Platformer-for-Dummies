@@ -95,14 +95,6 @@ public class PlayerMovement : MonoBehaviour
         return raycastHit.collider != null;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.transform.tag == "Platform")
-        {
-           
-        }
-    }
-
     #region SFX
     private void RunningSound()
     {
