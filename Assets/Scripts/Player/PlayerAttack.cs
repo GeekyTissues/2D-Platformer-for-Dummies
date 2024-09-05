@@ -32,7 +32,8 @@ public class PlayerAttack : MonoBehaviour
         attackTimer += Time.deltaTime;
 
         //Attack only when attack cooldown has ended and player has press correct input
-        if (Input.GetMouseButton(0) && attackTimer > attackCooldown)
+        if ((Input.GetMouseButton(0) || Input.GetKey(KeyCode.Joystick1Button0)) 
+            && attackTimer > attackCooldown)
         {
             attackTimer = 0;
             anim.SetTrigger("attack");
