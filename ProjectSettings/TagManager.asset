@@ -11,6 +11,7 @@ TagManager:
   - FallZone
   - FinishPoint
   - StartingPoint
+  - Goblin
   layers:
   - Default
   - TransparentFX

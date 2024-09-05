@@ -14,16 +14,22 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private int noOfFlashes;
     private SpriteRenderer spriteRend;
 
+    [SerializeField] private int coinDrop;
+
     [Header("SFX")]
     [SerializeField] private AudioClip takeDamageSound;
 
     private Animator anim;
+    private PlayerCurrency playerCurrency;
+    private GameObject player;
 
     private void Awake()
     {
         currentHealth = startingHealth;
         spriteRend = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+        playerCurrency = player.GetComponent<PlayerCurrency>();
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     public void TakeDamage(float _damage)
@@ -42,6 +48,7 @@ public class EnemyHealth : MonoBehaviour
                 anim.SetTrigger("dead");
                 dead = true;
                 Destroy(gameObject, 3f);
+                playerCurrency.GainCurrency(coinDrop);
             }
         }
         

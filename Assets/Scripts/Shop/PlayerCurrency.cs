@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerCurrency : MonoBehaviour
 {
     private CurrencyTracker currencyTracker;
-    private int currencyTotal;
+    public int currencyTotal {  get; private set; }
 
     private void Awake()
     {
@@ -14,7 +14,7 @@ public class PlayerCurrency : MonoBehaviour
     }
 
     //Adds currency count to the internal tracker and to the visual tracker
-    private void GainCurrency(int enemyValue)
+    public void GainCurrency(int enemyValue)
     {
         currencyTracker.AddCurrency(enemyValue);
         currencyTotal += enemyValue;
