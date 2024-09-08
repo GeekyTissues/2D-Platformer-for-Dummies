@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< Updated upstream:Assets/Materials.meta
 guid: 1891be3c28799f748ba5b43deffec22c
+========
+guid: 5e8d64b46aefe9a4ca49f594aa6c2e94
+>>>>>>>> Stashed changes:Assets/Sprites/player.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

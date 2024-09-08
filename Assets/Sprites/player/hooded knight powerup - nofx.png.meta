@@ -1,9 +1,9 @@
 fileFormatVersion: 2
-<<<<<<<< Updated upstream:Assets/Sprites/Background & Scene/Backgrounds/BACKGROUND.png.meta
-guid: f44fd67bd73d546469d7c317fcd1d5ae
+<<<<<<<< Updated upstream:Assets/Sprites/Background & Scene/Backgrounds/VINES - Second.png.meta
+guid: 5e2bdfea64a71124a8382cff370f9f5e
 ========
-guid: cda9c34913820f5488af066f9518289c
->>>>>>>> Stashed changes:Assets/Sprites/player/hooded knight attack.png.meta
+guid: 5acd51a74890b194c8893f1d355e8ad5
+>>>>>>>> Stashed changes:Assets/Sprites/player/hooded knight powerup - nofx.png.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,7 +97,7 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-<<<<<<<< Updated upstream:Assets/Sprites/Background & Scene/Backgrounds/BACKGROUND.png.meta
+<<<<<<<< Updated upstream:Assets/Sprites/Background & Scene/Backgrounds/VINES - Second.png.meta
   - serializedVersion: 3
     buildTarget: Windows Store Apps
     maxTextureSize: 2048
@@ -138,7 +138,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
 ========
->>>>>>>> Stashed changes:Assets/Sprites/player/hooded knight attack.png.meta
+>>>>>>>> Stashed changes:Assets/Sprites/player/hooded knight powerup - nofx.png.meta
   spriteSheet:
     serializedVersion: 2
     sprites: []

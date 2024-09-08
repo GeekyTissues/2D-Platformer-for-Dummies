@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< Updated upstream:Assets/Sprites/Background & Scene/Backgrounds/VINES - Second.png.meta
 guid: c3909c99bf845a24db9a162d677b6398
+========
+guid: 5acd51a74890b194c8893f1d355e8ad5
+>>>>>>>> Stashed changes:Assets/Sprites/player/hooded knight powerup - nofx.png.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -93,6 +97,7 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+<<<<<<<< Updated upstream:Assets/Sprites/Background & Scene/Backgrounds/VINES - Second.png.meta
   - serializedVersion: 3
     buildTarget: Windows Store Apps
     maxTextureSize: 2048
@@ -132,6 +137,8 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+========
+>>>>>>>> Stashed changes:Assets/Sprites/player/hooded knight powerup - nofx.png.meta
   spriteSheet:
     serializedVersion: 2
     sprites: []

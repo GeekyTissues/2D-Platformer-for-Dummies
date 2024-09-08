@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< Updated upstream:Assets/Sprites/Background & Scene/Backgrounds/BUSH - BACKGROUND.png.meta
 guid: 6e0fcddb85b3bfd4a9a26b3143f5d12a
+========
+guid: 5f07df6ba56b9464abd992cc3a44ccbc
+>>>>>>>> Stashed changes:Assets/Sprites/player/hooded knight powerup - effects.png.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -93,6 +97,7 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+<<<<<<<< Updated upstream:Assets/Sprites/Background & Scene/Backgrounds/BUSH - BACKGROUND.png.meta
   - serializedVersion: 3
     buildTarget: Windows Store Apps
     maxTextureSize: 2048
@@ -132,6 +137,8 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+========
+>>>>>>>> Stashed changes:Assets/Sprites/player/hooded knight powerup - effects.png.meta
   spriteSheet:
     serializedVersion: 2
     sprites: []
