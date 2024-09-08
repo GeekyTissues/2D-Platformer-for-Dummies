@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1496909534095254370}
   - component: {fileID: 5591115771345276825}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Eight_Tile (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,8 +70,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1175901361
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -1612110014, guid: b425613db706e0a49821a35253ec9db1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5745452468715923392}
   - component: {fileID: 1222919306601158136}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Eight_Tile (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,8 +154,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1175901361
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 2099569724, guid: b425613db706e0a49821a35253ec9db1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -178,7 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5143305706065420321}
   - component: {fileID: 1836029175457394311}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Eight_Tile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -238,8 +238,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1175901361
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -1392212944, guid: b425613db706e0a49821a35253ec9db1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -262,7 +262,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9128402652392542626}
   - component: {fileID: 5693786194826114138}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Eight_Tile (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -322,8 +322,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1175901361
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 1692574374, guid: b425613db706e0a49821a35253ec9db1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -346,7 +346,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5884274969492894483}
   - component: {fileID: 6006989351519933598}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Eight_Tile (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -406,8 +406,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1175901361
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -998231203, guid: b425613db706e0a49821a35253ec9db1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -430,7 +430,7 @@ GameObject:
   m_Component:
   - component: {fileID: 43275644969784360}
   - component: {fileID: 3948354668146481981}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Eight_Tile (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -490,8 +490,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1175901361
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -685784208, guid: b425613db706e0a49821a35253ec9db1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -514,7 +514,7 @@ GameObject:
   m_Component:
   - component: {fileID: 961043365800016113}
   - component: {fileID: 5664885480737232587}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Eight_Tile (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -574,8 +574,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1175901361
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 415875811, guid: b425613db706e0a49821a35253ec9db1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -598,7 +598,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4582643697313425103}
   - component: {fileID: 122920991813876588}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Eight_Tile (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -658,8 +658,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1175901361
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 2099569724, guid: b425613db706e0a49821a35253ec9db1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -681,7 +681,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8183179219637090224}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Slope1 Variant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -723,7 +723,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6026439486478513054}
   - component: {fileID: 8467765960339670532}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BoxCollider1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -800,7 +800,7 @@ GameObject:
   m_Component:
   - component: {fileID: 750971577041470157}
   - component: {fileID: 8425141424431969644}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BoxCollider1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
