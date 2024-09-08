@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3379426810128774106}
   - component: {fileID: 3319703836758943222}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Three_Tile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,8 +70,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1175901361
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -350087372, guid: b425613db706e0a49821a35253ec9db1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3075662591342685783}
   - component: {fileID: 3637763054588296185}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Platform 1 Variant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,7 +174,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5596860647280998974}
   - component: {fileID: 3962400690164859012}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Three_Tile (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -234,8 +234,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1175901361
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 2090670947, guid: b425613db706e0a49821a35253ec9db1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -258,7 +258,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2182649037252587158}
   - component: {fileID: 4114895991430179057}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Three_Tile (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -318,8 +318,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1175901361
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -1094225622, guid: b425613db706e0a49821a35253ec9db1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

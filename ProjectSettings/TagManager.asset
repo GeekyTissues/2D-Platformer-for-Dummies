@@ -12,6 +12,8 @@ TagManager:
   - FinishPoint
   - StartingPoint
   - Goblin
+  - BossRoomStart
+  - BossRoomTeleport
   layers:
   - Default
   - TransparentFX
@@ -49,15 +51,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Player
-    uniqueID: 128190079
+  - name: Background
+    uniqueID: 1085177613
     locked: 0
   - name: Foreground
     uniqueID: 3119065935
     locked: 0
-  - name: Background
-    uniqueID: 1085177613
-    locked: 0
   - name: Ground
     uniqueID: 1845282289
+    locked: 0
+  - name: Player
+    uniqueID: 128190079
     locked: 0
