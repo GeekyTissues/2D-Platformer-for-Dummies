@@ -7,6 +7,7 @@ public class PlayerRespawn : MonoBehaviour
     [Header("Manual Set References")]
     [SerializeField] private AudioClip checkpointSound;
     [SerializeField] Transform startingPoint;
+    [SerializeField] Transform bossRoomStart;
 
     [Header("References")]
     private Transform currentCheckpoint;
@@ -50,6 +51,11 @@ public class PlayerRespawn : MonoBehaviour
         if (collision.transform.tag == "FinishPoint")
         {
             uiManager.LevelCompleted();
+        }
+
+        if (collision.transform.tag == "BossRoomTeleport")
+        {
+            transform.position = bossRoomStart.position;
         }
     }
 }
