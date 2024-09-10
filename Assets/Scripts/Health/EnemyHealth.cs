@@ -20,16 +20,15 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private AudioClip takeDamageSound;
 
     private Animator anim;
-    private PlayerCurrency playerCurrency;
-    private GameObject player;
+    [SerializeField] private PlayerCurrency playerCurrency;
+    [SerializeField] private MeleeEnemy meleeEnemy;
+    [SerializeField] private EnemyPatrol enemyPatrol;
 
     private void Awake()
     {
         currentHealth = startingHealth;
         spriteRend = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
-        playerCurrency = player.GetComponent<PlayerCurrency>();
-        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     public void TakeDamage(float _damage)
@@ -49,6 +48,8 @@ public class EnemyHealth : MonoBehaviour
                 dead = true;
                 Destroy(gameObject, 3f);
                 playerCurrency.GainCurrency(coinDrop);
+                meleeEnemy.enabled = false;
+                enemyPatrol.enabled = false;
             }
         }
         

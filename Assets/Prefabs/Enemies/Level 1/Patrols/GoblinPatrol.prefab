@@ -196,26 +196,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5230401354440570407}
     m_Modifications:
-    - target: {fileID: 972832845785203196, guid: e6066f472601c424cbaa1b971c9deb80, type: 3}
-      propertyPath: m_SortingLayer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 972832845785203196, guid: e6066f472601c424cbaa1b971c9deb80, type: 3}
-      propertyPath: m_SortingLayerID
-      value: -1175901361
-      objectReference: {fileID: 0}
     - target: {fileID: 2135148752709158360, guid: e6066f472601c424cbaa1b971c9deb80, type: 3}
       propertyPath: m_Name
       value: Goblin
       objectReference: {fileID: 0}
-    - target: {fileID: 2135148752709158360, guid: e6066f472601c424cbaa1b971c9deb80, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3567955434426330954, guid: e6066f472601c424cbaa1b971c9deb80, type: 3}
-      propertyPath: anim
-      value: 
-      objectReference: {fileID: 1930589690099643291}
     - target: {fileID: 3567955434426330954, guid: e6066f472601c424cbaa1b971c9deb80, type: 3}
       propertyPath: leftEdge
       value: 
@@ -267,38 +251,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2135148752709158360, guid: e6066f472601c424cbaa1b971c9deb80, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1453791613369534515}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6066f472601c424cbaa1b971c9deb80, type: 3}
---- !u!95 &1930589690099643291 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 1935036115909054558, guid: e6066f472601c424cbaa1b971c9deb80, type: 3}
-  m_PrefabInstance: {fileID: 4631144874386373}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2139744709956675101 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2135148752709158360, guid: e6066f472601c424cbaa1b971c9deb80, type: 3}
-  m_PrefabInstance: {fileID: 4631144874386373}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1453791613369534515
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2139744709956675101}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1221b6422b2ff304d9700c6a7ead4d49, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startingHealth: 3
-  stunDuration: 1
-  noOfFlashes: 3
-  coinDrop: 1
-  takeDamageSound: {fileID: 0}
 --- !u!4 &4971456429715579448 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4967010003335725565, guid: e6066f472601c424cbaa1b971c9deb80, type: 3}
