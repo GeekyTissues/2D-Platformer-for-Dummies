@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class PlayerCurrency : MonoBehaviour
 {
-    private CurrencyTracker currencyTracker;
+    [SerializeField] CurrencyTracker currencyTracker;
     public int currencyTotal {  get; private set; }
 
     private void Awake()
     {
-        currencyTracker = GetComponent<CurrencyTracker>();
         currencyTotal = PlayerPrefs.GetInt("currencyTotal");
     }
 

@@ -15,7 +15,8 @@ GameObject:
   - component: {fileID: 4333037031590052805}
   - component: {fileID: 762570797122859501}
   - component: {fileID: 3567955434426330954}
-  m_Layer: 0
+  - component: {fileID: 5123819536264639992}
+  m_Layer: 8
   m_Name: Goblin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75,8 +76,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1175901361
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 4723107735738678597, guid: c1cdd26cc09ad224884556bc4d8296ae, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -207,4 +208,24 @@ MonoBehaviour:
   enemy: {fileID: 4967010003335725565}
   speed: 4
   idleDuration: 1
-  anim: {fileID: 0}
+  anim: {fileID: 1935036115909054558}
+--- !u!114 &5123819536264639992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2135148752709158360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1221b6422b2ff304d9700c6a7ead4d49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 3
+  stunDuration: 1
+  noOfFlashes: 3
+  coinDrop: 1
+  takeDamageSound: {fileID: 0}
+  playerCurrency: {fileID: 0}
+  meleeEnemy: {fileID: 762570797122859501}
+  enemyPatrol: {fileID: 3567955434426330954}
