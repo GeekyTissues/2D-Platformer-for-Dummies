@@ -43,10 +43,6 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    #region Main Menu
-
-    #endregion
-
     #region Game Over
     public void GameOver()
     {
