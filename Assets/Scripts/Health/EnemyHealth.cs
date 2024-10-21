@@ -46,10 +46,11 @@ public class EnemyHealth : MonoBehaviour
             {
                 anim.SetTrigger("dead");
                 dead = true;
-                Destroy(gameObject, 3f);
-                playerCurrency.GainCurrency(coinDrop);
                 meleeEnemy.enabled = false;
                 enemyPatrol.enabled = false;
+                Destroy(gameObject, 0.40f);
+                playerCurrency.GainCurrency(coinDrop);
+                
             }
         }
         

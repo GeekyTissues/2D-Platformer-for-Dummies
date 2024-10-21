@@ -33,7 +33,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 29.828, y: -4.273, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -206,7 +206,7 @@ MonoBehaviour:
   leftEdge: {fileID: 0}
   rightEdge: {fileID: 0}
   enemy: {fileID: 4967010003335725565}
-  speed: 4
+  speed: 1
   idleDuration: 1
   anim: {fileID: 1935036115909054558}
 --- !u!114 &5123819536264639992

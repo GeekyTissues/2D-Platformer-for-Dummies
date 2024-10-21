@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float airSpeed;
     [SerializeField] private float jumpPower;
+    [SerializeField] private float jumpCooldown;
 
     [Header("Calculations")]
     [SerializeField] private float slopeCheckDistance;
@@ -35,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
     private bool isOnSlope;
     private float slopeDownAngleOld;
     private bool facingRight = true;
+    private float jumpTimer;
 
     //Vectors
     private Vector2 colliderSize;
@@ -49,10 +51,12 @@ public class PlayerMovement : MonoBehaviour
         anim = GetComponent<Animator>();
 
         colliderSize = cc.size;
+        jumpTimer = Mathf.Infinity;
     }
 
     private void Update()
     {
+        jumpTimer += Time.deltaTime;
 
         if (Input.GetKey(KeyCode.Space))
         {
@@ -63,7 +67,6 @@ public class PlayerMovement : MonoBehaviour
                 SoundManager.instance.PlaySound(jumpSound);
             }
         }
-
         if (Input.GetKey(KeyCode.Joystick1Button1))
         {
             Jump();
@@ -112,6 +115,8 @@ public class PlayerMovement : MonoBehaviour
         {
             
         }
+
+       
     }
 
     private void Flip()
@@ -157,9 +162,21 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void Jump()
+    private bool CanJump()
     {
         if (IsGrounded() || IsPlatformed())
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    private void Jump()
+    {
+        if (CanJump())
         {
             body.velocity = new Vector2(body.velocity.x, jumpPower);
         }
@@ -168,14 +185,14 @@ public class PlayerMovement : MonoBehaviour
     
     private bool IsGrounded()
     {
-        RaycastHit2D raycastHit = Physics2D.BoxCast(cc.bounds.center, cc.size, 0, Vector2.down, 1f, groundLayer);
+        RaycastHit2D raycastHit = Physics2D.BoxCast(cc.bounds.center, cc.size, 0, Vector2.down, 0.1f, groundLayer);
         return raycastHit.collider != null;
         
     }
 
     private bool IsPlatformed()
     {
-        RaycastHit2D raycastHit = Physics2D.BoxCast(cc.bounds.center, cc.size, 0, Vector2.down, 1f, platformLayer);
+        RaycastHit2D raycastHit = Physics2D.BoxCast(cc.bounds.center, cc.size, 0, Vector2.down, 0.1f, platformLayer);
         return raycastHit.collider != null;
     }
 
