@@ -7,6 +7,7 @@ public class PlayerRespawn : MonoBehaviour
     [Header("Manual Set References")]
     [SerializeField] private AudioClip checkpointSound;
     [SerializeField] Transform startingPoint;
+    [SerializeField] Transform bossRoomStart;
 
     [Header("References")]
     private Transform currentCheckpoint;
@@ -34,21 +35,27 @@ public class PlayerRespawn : MonoBehaviour
             currentCheckpoint = collision.transform; //Stores Checkpoint
             collision.GetComponent<Collider2D>().enabled = false;
             collision.GetComponent<Animator>().SetTrigger("Appear");
+            SoundManager.instance.PlaySound(checkpointSound);   
         }
 
         //Takes the player back to last checkpoint
         if (collision.transform.tag == "FallZone")
         {
-            playerHealth.TakeDamage(1);
             if (playerHealth.currentHealth > 0)
             {
                 transform.position = currentCheckpoint.position;
             }
+            playerHealth.TakeDamage(1);
         }
 
         if (collision.transform.tag == "FinishPoint")
         {
             uiManager.LevelCompleted();
+        }
+
+        if (collision.transform.tag == "BossRoomTeleport")
+        {
+            transform.position = bossRoomStart.position;
         }
     }
 }
