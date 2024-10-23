@@ -84,7 +84,7 @@ SpriteRenderer:
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.33482996, y: 0.23826504}
+  m_Size: {x: 0.32, y: 0.25}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -163,7 +163,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.32, y: 0.25}
-    newSize: {x: 0.33482996, y: 0.23826504}
+    newSize: {x: 0.32, y: 0.25}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -208,6 +208,9 @@ MonoBehaviour:
   noOfFlashes: 3
   coinDrop: 1
   takeDamageSound: {fileID: 0}
+  playerCurrency: {fileID: 0}
+  meleeEnemy: {fileID: 0}
+  enemyPatrol: {fileID: 0}
 --- !u!114 &6881635538680083898
 MonoBehaviour:
   m_ObjectHideFlags: 0
