@@ -25,22 +25,54 @@ public class RangedEnemy : MonoBehaviour
 
     //primitives
     private float cooldownTimer = Mathf.Infinity;
+    private bool playerDetected;
+    private Transform player;
+    private bool facingRight = true;
 
     private void Awake()
     {
-        anim = GetComponent<Animator>();
+        anim = GetComponentInChildren<Animator>(); 
+        areaDetector = GetComponent<BoxCollider2D>();
+        anim.SetBool("idle", true);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void Update()
     {
-        anim.SetTrigger("attack");
+        cooldownTimer += Time.deltaTime;
+        playerDetected = GetComponentInChildren<PlayerDetection>().PlayerInArea;
+        if(playerDetected)
+        {
+            anim.SetBool("idle", false);
+            player = GetComponentInChildren<PlayerDetection>().Player;
+            if(player.transform.localPosition.x < transform.localPosition.x && facingRight)
+            {
+                Flip();}
+            if (player.transform.localPosition.x > transform.localPosition.x && !facingRight)
+            {
+                Flip();}
+            if (cooldownTimer > attackCooldown)
+            {
+                anim.SetTrigger("attack");
+                cooldownTimer = 0;
+                
+            }
+            anim.SetBool("idle", true);
+        }
+    }
+    private void Flip()
+    {
+        Vector3 currentScale = transform.localScale;
+        currentScale.x *= -1;
+        transform.localScale = currentScale;
+
+        facingRight = !facingRight;
     }
 
     private void RangedAttack()
     {
-        cooldownTimer += Time.deltaTime;
         arrows[FindArrow()].transform.position = firePoint.position;
-        arrows[FindArrow()].GetComponent<EnemyProjectile>().ActivateProjectile();
+        arrows[FindArrow()].GetComponent<EnemyProjectile>()
+            .ActivateProjectile(Mathf.Sign(transform.localScale.x));
     }
 
     private int FindArrow()

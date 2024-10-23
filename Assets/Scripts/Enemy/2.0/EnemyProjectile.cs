@@ -6,22 +6,29 @@ public class EnemyProjectile : EnemyDamage
 {
     [SerializeField] private float speed;
     [SerializeField] private float resetTime;
-    [SerializeField] private Transform playerLocation;
     private float lifetime;
+    private float direction;
 
-    public void ActivateProjectile()
+    public void ActivateProjectile(float _direction)
     {
+        direction = _direction;
         lifetime = 0;
         gameObject.SetActive(true);
+        float localScaleX = transform.localScale.x;
+        if(Mathf.Sign(localScaleX) != _direction)
+        {
+            localScaleX = -localScaleX;
+        }
+        transform.localScale = new Vector3(localScaleX, transform.localScale.y, transform.localScale.z);
     }
 
     private void Update()
     {
-        float movementSpeed = speed * Time.deltaTime;
-        transform.Translate(movementSpeed, playerLocation.localPosition.y, 0);
+        float movementSpeed = speed * Time.deltaTime * direction;
+        transform.Translate(movementSpeed, 0, 0);
 
         lifetime += Time.deltaTime;
-        if (lifetime < resetTime)
+        if (lifetime > resetTime)
         {
             gameObject.SetActive(false);
         }
@@ -31,6 +38,10 @@ public class EnemyProjectile : EnemyDamage
     private void OnTriggerEnter2D(Collider2D collision)
     {
         base.OnTriggerEnter2D(collision); //Execute logic from parent script first
-        gameObject.SetActive(false); //When this hits any object, deactivate arrow
+        if (GetComponent<Collider2D>().gameObject.layer == 9)
+        {
+            gameObject.SetActive(false); //When this hits any object, deactivate arrow
+        }
+        
     }
 }

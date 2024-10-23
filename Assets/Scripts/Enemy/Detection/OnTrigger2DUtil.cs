@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+/// <summary>
+// use to activate objects e.g. box colliders, cameras
+/// </summary>
 public class OnTrigger2DUtil : MonoBehaviour
 {
     public string targetTag = "Player";

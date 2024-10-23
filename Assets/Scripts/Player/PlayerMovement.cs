@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    #region Variables and References
     [Header("Movement")]
     [SerializeField] private float speed;
     [SerializeField] private float airSpeed;
@@ -42,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 colliderSize;
     private Vector2 slopeNormalPerp;
 
+    #endregion
 
     private void Awake()
     {
@@ -58,30 +60,15 @@ public class PlayerMovement : MonoBehaviour
     {
         jumpTimer += Time.deltaTime;
 
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Joystick1Button1))
         {
             Jump();
-            anim.Play("jump");
-            if (Input.GetKeyDown(KeyCode.Space) && (IsGrounded() || IsPlatformed()))
-            {
-                SoundManager.instance.PlaySound(jumpSound);
-            }
-        }
-        if (Input.GetKey(KeyCode.Joystick1Button1))
-        {
-            Jump();
-            anim.Play("jump");
-            if (Input.GetKeyDown(KeyCode.Joystick1Button1) && (IsGrounded() || IsPlatformed()))
-            {
-                SoundManager.instance.PlaySound(jumpSound);
-            }
         }
 
         //Set animator parameters
         anim.SetBool("run", horizontalInput != 0);
         anim.SetBool("grounded", IsGrounded());
         anim.SetBool("platformed", IsPlatformed());
-
     }
 
     private void FixedUpdate()
@@ -90,6 +77,7 @@ public class PlayerMovement : MonoBehaviour
         ApplyMovement();
     }
 
+    #region Movement
     private void ApplyMovement()
     {
         horizontalInput = Input.GetAxis("Horizontal");
@@ -119,6 +107,43 @@ public class PlayerMovement : MonoBehaviour
        
     }
 
+
+    private bool CanJump()
+    {
+        if (IsGrounded() || IsPlatformed())
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    private void Jump()
+    {
+        if (CanJump())
+        {
+            body.velocity = new Vector2(body.velocity.x, jumpPower);
+            anim.Play("jump");
+            SoundManager.instance.PlaySound(jumpSound);
+        }
+    }
+
+
+    private bool IsGrounded()
+    {
+        RaycastHit2D raycastHit = Physics2D.BoxCast(cc.bounds.center, cc.size, 0, Vector2.down, 0.1f, groundLayer);
+        return raycastHit.collider != null;
+
+    }
+
+    private bool IsPlatformed()
+    {
+        RaycastHit2D raycastHit = Physics2D.BoxCast(cc.bounds.center, cc.size, 0, Vector2.down, 0.1f, platformLayer);
+        return raycastHit.collider != null;
+    }
+
     private void Flip()
     {
         Vector3 currentScale = transform.localScale;
@@ -128,6 +153,10 @@ public class PlayerMovement : MonoBehaviour
         facingRight = !facingRight;
     }
 
+    #endregion
+
+
+    #region Slopes
     private void SlopeCheck()
     {
         Vector2 checkPos = transform.position - new Vector3(0.0f, colliderSize.y / 2);
@@ -162,39 +191,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private bool CanJump()
-    {
-        if (IsGrounded() || IsPlatformed())
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-
-    private void Jump()
-    {
-        if (CanJump())
-        {
-            body.velocity = new Vector2(body.velocity.x, jumpPower);
-        }
-    }
-
-    
-    private bool IsGrounded()
-    {
-        RaycastHit2D raycastHit = Physics2D.BoxCast(cc.bounds.center, cc.size, 0, Vector2.down, 0.1f, groundLayer);
-        return raycastHit.collider != null;
-        
-    }
-
-    private bool IsPlatformed()
-    {
-        RaycastHit2D raycastHit = Physics2D.BoxCast(cc.bounds.center, cc.size, 0, Vector2.down, 0.1f, platformLayer);
-        return raycastHit.collider != null;
-    }
+    #endregion
 
     #region SFX
     private void RunningSound()
