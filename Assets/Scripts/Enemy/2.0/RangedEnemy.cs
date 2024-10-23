@@ -7,8 +7,6 @@ public class RangedEnemy : MonoBehaviour
 {
     [Header("Attack Parameters")]
     [SerializeField] private float attackCooldown;
-    [SerializeField] private float range;
-    [SerializeField] private int damage;
 
     [Header("Ranged Attack")]
     [SerializeField] private Transform firePoint;
@@ -31,6 +29,11 @@ public class RangedEnemy : MonoBehaviour
     private void Awake()
     {
         anim = GetComponent<Animator>();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        anim.SetTrigger("attack");
     }
 
     private void RangedAttack()

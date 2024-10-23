@@ -6,6 +6,7 @@ public class EnemyProjectile : EnemyDamage
 {
     [SerializeField] private float speed;
     [SerializeField] private float resetTime;
+    [SerializeField] private Transform playerLocation;
     private float lifetime;
 
     public void ActivateProjectile()
@@ -17,7 +18,7 @@ public class EnemyProjectile : EnemyDamage
     private void Update()
     {
         float movementSpeed = speed * Time.deltaTime;
-        transform.Translate(movementSpeed, 0, 0);
+        transform.Translate(movementSpeed, playerLocation.localPosition.y, 0);
 
         lifetime += Time.deltaTime;
         if (lifetime < resetTime)
