@@ -87,7 +87,7 @@ public class PlayerMovement : MonoBehaviour
         if (horizontalInput > 0 && !facingRight) { 
             Flip();
         }
-        if (horizontalInput <0 && facingRight)
+        if (horizontalInput < 0 && facingRight)
         {
             Flip();
         }
