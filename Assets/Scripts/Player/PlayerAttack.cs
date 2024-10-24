@@ -6,12 +6,10 @@ public class PlayerAttack : MonoBehaviour
 {
     [Header("Attack Parameters")]
     [SerializeField] private float attackCooldown;
-    [SerializeField] private float range;
-    [SerializeField] private float colliderDistance;
 
     [Header("Collider Parameters")]
     [SerializeField] private int damage;
-    [SerializeField] private BoxCollider2D bc;
+    [SerializeField] private BoxCollider2D swordCollider;
 
     [Header("Player Layer")]
     [SerializeField] private LayerMask enemyLayer;
@@ -21,10 +19,12 @@ public class PlayerAttack : MonoBehaviour
     private Animator anim;
     private EnemyHealth enemyHealth;
 
+
     private void Awake()
     {
         anim = GetComponent<Animator>();
         enemyHealth = GetComponent<EnemyHealth>();
+        swordCollider.enabled = false;
     }
 
     private void Update()
@@ -35,40 +35,9 @@ public class PlayerAttack : MonoBehaviour
         if ((Input.GetMouseButton(0) || Input.GetKey(KeyCode.Joystick1Button0)) 
             && attackTimer > attackCooldown)
         {
+            swordCollider.enabled = true;
             attackTimer = 0;
             anim.SetTrigger("attack");
         }
     }
-
-    public bool AttackConnected()
-    {
-        //Changes how big the hitbox is for detection
-        RaycastHit2D hit = Physics2D.BoxCast(bc.bounds.center + transform.right * range * transform.localScale.x * colliderDistance,
-            new Vector3(bc.bounds.size.x * range, bc.bounds.size.y, bc.bounds.size.z),
-            0, Vector2.left, 0, enemyLayer);
-
-
-        if (hit.collider != null)
-        {
-            enemyHealth = hit.transform.GetComponent<EnemyHealth>();
-        }
-
-        return hit.collider != null;
-    }
-
-    public void Damage()
-    {
-        if (AttackConnected())
-        {
-            enemyHealth.TakeDamage(damage);
-        }
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(bc.bounds.center + transform.right * range * transform.localScale.x * colliderDistance,
-            new Vector3(bc.bounds.size.x * range, bc.bounds.size.y, bc.bounds.size.z));
-    }
-
 }

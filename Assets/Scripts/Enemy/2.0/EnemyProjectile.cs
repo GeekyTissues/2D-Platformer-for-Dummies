@@ -15,7 +15,7 @@ public class EnemyProjectile : Damage
         lifetime = 0;
         gameObject.SetActive(true);
         float localScaleX = transform.localScale.x;
-        if(Mathf.Sign(localScaleX) != _direction)
+        if(Mathf.Sign(localScaleX) != Mathf.Sign(_direction))
         {
             localScaleX = -localScaleX;
         }

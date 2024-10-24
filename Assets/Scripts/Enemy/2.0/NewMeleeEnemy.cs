@@ -7,7 +7,7 @@ public class NewMeleeEnemy : MonoBehaviour
 {
     [Header("Attack Parameters")]
     [SerializeField] private float attackCooldown;
-    [SerializeField] private int damage;
+    
 
     [Header("Player Layer")]
     [SerializeField] private LayerMask playerLayer;
@@ -42,6 +42,7 @@ public class NewMeleeEnemy : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         anim.SetBool("idle", true);
+        swordCollider.enabled = false;
     }
 
     // Update is called once per frame
@@ -62,6 +63,7 @@ public class NewMeleeEnemy : MonoBehaviour
                 StopMovement();
                 if(cooldownTimer > attackCooldown)
                 {
+                    swordCollider.enabled = true;
                     anim.SetTrigger("attack");
                     cooldownTimer = 0;
                 }

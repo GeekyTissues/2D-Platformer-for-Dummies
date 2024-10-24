@@ -1,5 +1,97 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3506239025091744536
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7046454427188286994}
+  - component: {fileID: 497458561087836925}
+  - component: {fileID: 282393946994267882}
+  m_Layer: 7
+  m_Name: SwordCollider
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7046454427188286994
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3506239025091744536}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: 0.37905705, w: 0.9253733}
+  m_LocalPosition: {x: 0.114, y: 0.3070029, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6248046483875892627}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 44.551}
+--- !u!61 &497458561087836925
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3506239025091744536}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.33666772, y: 0.29111135}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.03145969, y: 0.20508263}
+  m_EdgeRadius: 0
+--- !u!114 &282393946994267882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3506239025091744536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb7252ec9160b0459241e9f875f557f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  swordCollider: {fileID: 497458561087836925}
 --- !u!1 &3574639086349442716
 GameObject:
   m_ObjectHideFlags: 0
@@ -37,7 +129,8 @@ Transform:
   m_LocalPosition: {x: -9.25, y: -3.15, z: -0.0046467087}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 7046454427188286994}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &549459488653040936
@@ -155,12 +248,11 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
-  platformLayer:
-    serializedVersion: 2
-    m_Bits: 64
   playerLayer:
     serializedVersion: 2
     m_Bits: 128
+  noFriction: {fileID: 6200000, guid: 5e3306586faec8a4fa58d1e5e0d904f2, type: 2}
+  fullFriction: {fileID: 6200000, guid: 85b212c08f2b4c94da3178b5797a4716, type: 2}
   jumpSound: {fileID: 8300000, guid: 4e349dc959014a845b9aa317d1c2b7f0, type: 3}
   landSound: {fileID: 8300000, guid: eaae8fe8d600e1f459f34aa5757fa3b8, type: 3}
   runningSound: {fileID: 8300000, guid: df7087e4d8a8bb546bc08ce68632903f, type: 3}
@@ -180,7 +272,7 @@ MonoBehaviour:
   range: 2.3
   colliderDistance: 0.145
   damage: 1
-  cc: {fileID: 2105379854449203843}
+  swordCollider: {fileID: 497458561087836925}
   enemyLayer:
     serializedVersion: 2
     m_Bits: 256

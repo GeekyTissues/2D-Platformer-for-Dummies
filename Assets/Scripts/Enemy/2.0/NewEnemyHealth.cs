@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyHealth : MonoBehaviour
+public class NewEnemyHealth : MonoBehaviour
 {
     [Header("Health")]
     [SerializeField] private float startingHealth;
@@ -19,12 +19,12 @@ public class EnemyHealth : MonoBehaviour
     [Header("SFX")]
     [SerializeField] private AudioClip takeDamageSound;
 
-    private Animator anim;
-
     [Header("Components")]
-    [SerializeField] private PlayerCurrency playerCurrency;
-    [SerializeField] private MeleeEnemy meleeEnemy;
-    [SerializeField] private EnemyPatrol enemyPatrol;
+    [SerializeField] private NewMeleeEnemy meleeEnemy;
+    [SerializeField] private RangedEnemy rangedEnemy;
+    [SerializeField] private BoxCollider2D swordCollider;
+
+    private Animator anim;
 
     private void Awake()
     {
@@ -39,7 +39,8 @@ public class EnemyHealth : MonoBehaviour
 
         if (currentHealth > 0)
         {
-            anim.SetTrigger("hurt");
+            swordCollider.enabled = false;
+            anim.SetTrigger("hit");
             StartCoroutine(Stun());
         }
         else
@@ -49,18 +50,16 @@ public class EnemyHealth : MonoBehaviour
                 anim.SetTrigger("dead");
                 dead = true;
                 meleeEnemy.enabled = false;
-                enemyPatrol.enabled = false;
-                Destroy(gameObject, 0.40f);
-                playerCurrency.GainCurrency(coinDrop);
-                
+                rangedEnemy.enabled = false;
+                Destroy(gameObject, 0.40f); //Despawns enemy
             }
         }
-        
+
     }
 
     private IEnumerator Stun()
     {
-        GetComponent<EnemyPatrol>().enabled = false;
+        anim.SetBool("idle", true);
         for (int i = 0; i < noOfFlashes; i++)
         {
             spriteRend.color = new Color(1, 0, 0, 0.5f);
@@ -68,19 +67,5 @@ public class EnemyHealth : MonoBehaviour
             spriteRend.color = Color.white;
             yield return new WaitForSeconds(stunDuration / (noOfFlashes * 2));
         }
-        GetComponent<EnemyPatrol>().enabled = true;
     }
-
-    public void AddHealth(float _value)
-    {
-        currentHealth = Mathf.Clamp(currentHealth + _value, 0, startingHealth);
-    }
-
-    #region SFX
-    private void TakeDamageSound()
-    {
-        SoundManager.instance.PlaySound(takeDamageSound);
-    }
-    #endregion
 }
-
