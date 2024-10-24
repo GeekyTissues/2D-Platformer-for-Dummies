@@ -7,7 +7,7 @@ public class NewMeleeEnemy : MonoBehaviour
 {
     [Header("Attack Parameters")]
     [SerializeField] private float attackCooldown;
-    [SerializeField] private float range;
+    [SerializeField] private int damage;
 
     [Header("Player Layer")]
     [SerializeField] private LayerMask playerLayer;
@@ -15,8 +15,12 @@ public class NewMeleeEnemy : MonoBehaviour
     [Header("Movement Parameters")]
     private Vector3 initScale;
     [SerializeField] private int moveSpeed;
-    [SerializeField] private int maxDist;
-    [SerializeField] private int minDist;
+    [SerializeField] private float inRange;
+
+    [Header("Collider Parameters")]
+    [SerializeField] private CapsuleCollider2D cc;
+    [SerializeField] private BoxCollider2D swordCollider;
+    [SerializeField] private BoxCollider2D areaCollider;
 
 
     private float cooldownTimer = Mathf.Infinity;
@@ -43,16 +47,24 @@ public class NewMeleeEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        cooldownTimer = Time.deltaTime;
+        cooldownTimer += Time.deltaTime;
         playerDetected = GetComponentInChildren<PlayerDetection>().PlayerInArea;
-        if(playerDetected)
+        if (playerDetected)
         {
             anim.SetBool("idle", false);
             player = GetComponentInChildren<PlayerDetection>().Player;
-            MoveTowardsPlayer();
-            if (PlayerInRange())
+            if( Vector2.Distance(transform.position, player.position) >= inRange)
+            {
+                MoveTowardsPlayer();
+            }
+            else
             {
                 StopMovement();
+                if(cooldownTimer > attackCooldown)
+                {
+                    anim.SetTrigger("attack");
+                    cooldownTimer = 0;
+                }
             }
         }
         if (!playerDetected) //Stops Enemy movement
@@ -62,6 +74,7 @@ public class NewMeleeEnemy : MonoBehaviour
         }
     }
 
+    #region Movement
     private void MoveTowardsPlayer()
     {
         anim.SetBool("walk", true);
@@ -90,13 +103,18 @@ public class NewMeleeEnemy : MonoBehaviour
 
         facingRight = !facingRight;
     }
+    #endregion
 
-    private bool PlayerInRange()
-    {
-        if (Vector3.Distance(transform.position, player.position) <= maxDist)
-        {
-            return true;
-        }
-        return false;
-    }
+    #region Attack
+    
+
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    if (GetComponent<Collider2D>().gameObject.layer == 7)
+    //    {
+    //        GetComponent<PlayerHealth>().TakeDamage(damage);
+    //    }
+    //}
+
+    #endregion
 }

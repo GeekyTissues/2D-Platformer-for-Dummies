@@ -11,7 +11,7 @@ public class PlayerAttack : MonoBehaviour
 
     [Header("Collider Parameters")]
     [SerializeField] private int damage;
-    [SerializeField] private CapsuleCollider2D cc;
+    [SerializeField] private BoxCollider2D bc;
 
     [Header("Player Layer")]
     [SerializeField] private LayerMask enemyLayer;
@@ -43,8 +43,8 @@ public class PlayerAttack : MonoBehaviour
     public bool AttackConnected()
     {
         //Changes how big the hitbox is for detection
-        RaycastHit2D hit = Physics2D.BoxCast(cc.bounds.center + transform.right * range * transform.localScale.x * colliderDistance,
-            new Vector3(cc.bounds.size.x * range, cc.bounds.size.y, cc.bounds.size.z),
+        RaycastHit2D hit = Physics2D.BoxCast(bc.bounds.center + transform.right * range * transform.localScale.x * colliderDistance,
+            new Vector3(bc.bounds.size.x * range, bc.bounds.size.y, bc.bounds.size.z),
             0, Vector2.left, 0, enemyLayer);
 
 
@@ -67,8 +67,8 @@ public class PlayerAttack : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(cc.bounds.center + transform.right * range * transform.localScale.x * colliderDistance,
-            new Vector3(cc.bounds.size.x * range, cc.bounds.size.y, cc.bounds.size.z));
+        Gizmos.DrawWireCube(bc.bounds.center + transform.right * range * transform.localScale.x * colliderDistance,
+            new Vector3(bc.bounds.size.x * range, bc.bounds.size.y, bc.bounds.size.z));
     }
 
 }

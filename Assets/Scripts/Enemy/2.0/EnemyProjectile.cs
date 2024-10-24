@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyProjectile : EnemyDamage
+public class EnemyProjectile : Damage
 {
     [SerializeField] private float speed;
     [SerializeField] private float resetTime;
