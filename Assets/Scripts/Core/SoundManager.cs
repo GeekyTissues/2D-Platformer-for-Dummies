@@ -4,16 +4,22 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
+    /// <summary>
+    /// Script controls the sound manager. Provides a function to use in other scripts to call the manager to play audio clips
+    /// Functions to change the volume of the sound are included
+    /// </summary>
+
     public static SoundManager instance { get; private set; }
     private AudioSource source;
     private AudioSource musicSource;
-
+    
     private void Awake()
     {
         instance = this;  
         source = GetComponent<AudioSource>();
         musicSource = transform.GetChild(0).GetComponent<AudioSource>();
 
+        //Ensures that there is only one SoundManager in a scene. Prevents multiple of the same audio sources playing
         if (instance == null)
         {
             instance = this;
@@ -25,6 +31,7 @@ public class SoundManager : MonoBehaviour
         }
     }
 
+    //Function to call Sound Manager to play audio clips in other scripts
     public void PlaySound(AudioClip _sound)
     {
         source.PlayOneShot(_sound);

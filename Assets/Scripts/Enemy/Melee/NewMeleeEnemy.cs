@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class NewMeleeEnemy : MonoBehaviour
 {
+    /// <summary>
+    /// Controls the melee enemies. Checks if the player is nearby, moves toward the player, and attacks when in range. 
+    /// </summary>
+
     [Header("Attack Parameters")]
     [SerializeField] private float attackCooldown;
     
@@ -50,14 +54,19 @@ public class NewMeleeEnemy : MonoBehaviour
     {
         cooldownTimer += Time.deltaTime;
         playerDetected = GetComponentInChildren<PlayerDetection>().PlayerInArea;
+
+        //If statements checking for when the player has been detected
         if (playerDetected)
         {
             anim.SetBool("idle", false);
             player = GetComponentInChildren<PlayerDetection>().Player;
+
+            //If player is out of melee range, moves toward the player
             if( Vector2.Distance(transform.position, player.position) >= inRange)
             {
                 MoveTowardsPlayer();
             }
+            //If the player is in range and the attackcooldown is over, attacks the player
             else
             {
                 StopMovement();
@@ -69,6 +78,7 @@ public class NewMeleeEnemy : MonoBehaviour
                 }
             }
         }
+        //When the player is no longer in range, stops all movement
         if (!playerDetected) //Stops Enemy movement
         {
             player = null;
@@ -76,6 +86,9 @@ public class NewMeleeEnemy : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Region contains functions for movement i.e. moving towards the player, stopping movement
+    /// </summary>
     #region Movement
     private void MoveTowardsPlayer()
     {
@@ -105,18 +118,5 @@ public class NewMeleeEnemy : MonoBehaviour
 
         facingRight = !facingRight;
     }
-    #endregion
-
-    #region Attack
-    
-
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    if (GetComponent<Collider2D>().gameObject.layer == 7)
-    //    {
-    //        GetComponent<PlayerHealth>().TakeDamage(damage);
-    //    }
-    //}
-
     #endregion
 }

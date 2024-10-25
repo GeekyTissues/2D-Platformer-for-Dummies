@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class EnemyWeapon : MonoBehaviour
 {
+    /// <summary>
+    /// Script for the enemy weapon that checks if the weapon has collided with the player.
+    /// Takes health from the player on collision
+    /// </summary>
+
     [SerializeField] private int damage;
     [SerializeField] private BoxCollider2D swordCollider;
 

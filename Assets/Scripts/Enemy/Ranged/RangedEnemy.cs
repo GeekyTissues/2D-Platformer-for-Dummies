@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class RangedEnemy : MonoBehaviour
 {
+    /// <summary>
+    /// Ranged enemy script. Checks for the player, if the player is detected, the enemy shoots projectiles in the direction of the player.
+    /// </summary>
+
     [Header("Attack Parameters")]
     [SerializeField] private float attackCooldown;
 
@@ -59,6 +63,8 @@ public class RangedEnemy : MonoBehaviour
             anim.SetBool("idle", true);
         }
     }
+
+    //Flips the enemy to face the player
     private void Flip()
     {
         Vector3 currentScale = transform.localScale;
@@ -68,6 +74,7 @@ public class RangedEnemy : MonoBehaviour
         facingRight = !facingRight;
     }
 
+    //Calls for the projectile to activate and fire in the direction being faced
     private void RangedAttack()
     {
         arrows[FindArrow()].transform.position = firePoint.position;
@@ -75,6 +82,7 @@ public class RangedEnemy : MonoBehaviour
             .ActivateProjectile(Mathf.Sign(transform.localScale.x));
     }
 
+    //Checks for any arrows currently available
     private int FindArrow()
     {
         for (int i = 0; i < arrows.Length; i++)

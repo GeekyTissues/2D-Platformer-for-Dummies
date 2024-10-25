@@ -33,6 +33,7 @@ public class NewEnemyHealth : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
+    //Takes health away from enemy health pool and stuns the enemy from attacking or moving
     public void TakeDamage(float _damage)
     {
         currentHealth = Mathf.Clamp(currentHealth - _damage, 0, startingHealth);
@@ -57,6 +58,7 @@ public class NewEnemyHealth : MonoBehaviour
 
     }
 
+    //Function that stuns the enemy, activates certain animations
     private IEnumerator Stun()
     {
         anim.SetBool("idle", true);

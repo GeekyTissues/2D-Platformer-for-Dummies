@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class EnemyProjectile : Damage
 {
+    /// <summary>
+    /// Script for the enemy projectiles. Functions for activating the projectile when in use and move the projectile across the screen. 
+    /// Checks if the projectile has collider with anything and deactivates if true.
+    /// </summary>
+
     [SerializeField] private float speed;
     [SerializeField] private float resetTime;
     private float lifetime;
@@ -15,6 +20,8 @@ public class EnemyProjectile : Damage
         lifetime = 0;
         gameObject.SetActive(true);
         float localScaleX = transform.localScale.x;
+
+        //If the arrow is not facing the same direction as the parent gameobject, switch the direction
         if(Mathf.Sign(localScaleX) != Mathf.Sign(_direction))
         {
             localScaleX = -localScaleX;
