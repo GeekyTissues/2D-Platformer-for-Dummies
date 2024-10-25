@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6765610169179532678}
   - component: {fileID: 5414844364339416341}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 6840539197418630773}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.001, y: -0.18, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -73,12 +73,12 @@ SpriteRenderer:
   m_SortingLayerID: -1175901361
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1714739035, guid: 413986c4a668c374d8de72a47621b531, type: 3}
+  m_Sprite: {fileID: 2751661550199297828, guid: ae820e2e0e004174586d176b37cf0775, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.48, y: 0.05}
+  m_Size: {x: 0.32, y: 0.12}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 6676655180119956540}
   - component: {fileID: 4912286163511740648}
   - component: {fileID: 6322436298945324939}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Single_Platform
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -112,7 +112,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.84, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2625, y: 0.8625, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6765610169179532678}
@@ -150,7 +150,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 1
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0005722642, y: -0.00028612185}
+  m_Offset: {x: -0.0023720935, y: -0.00028612092}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -161,7 +161,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.45903933, y: 0.051029682}
+  m_Size: {x: 0.3000195, y: 0.051029682}
   m_EdgeRadius: 0
 --- !u!251 &6322436298945324939
 PlatformEffector2D:

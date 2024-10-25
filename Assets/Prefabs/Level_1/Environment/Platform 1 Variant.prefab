@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3379426810128774106}
   - component: {fileID: 3319703836758943222}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Three_Tile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3075662591342685783}
   - component: {fileID: 3637763054588296185}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Platform 1 Variant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,7 +174,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5596860647280998974}
   - component: {fileID: 3962400690164859012}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Three_Tile (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -258,7 +258,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2182649037252587158}
   - component: {fileID: 4114895991430179057}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Three_Tile (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

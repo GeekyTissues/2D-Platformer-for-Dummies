@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7046454427188286994}
   - component: {fileID: 497458561087836925}
   - component: {fileID: 282393946994267882}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: SwordCollider
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3506239025091744536}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -110,6 +110,7 @@ GameObject:
   - component: {fileID: 3832296304680591333}
   - component: {fileID: 530695423066145628}
   - component: {fileID: 2105379854449203843}
+  - component: {fileID: 8875559042671341111}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -200,7 +201,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 128190079
   m_SortingLayer: 4
-  m_SortingOrder: 1
+  m_SortingOrder: 4
   m_Sprite: {fileID: 4723107735738678597, guid: f374107ba66790641b6b7c9d0d9a49d3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -224,8 +225,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cc37a93da65503479eb9692b94878e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 3
-  iFrameDuration: 2
+  startingHealth: 6
+  iFrameDuration: 3
   noOfFlashes: 3
   takeDamageSound: {fileID: 8300000, guid: 8b23b175a78d6b5458322e3a6c9905d0, type: 3}
 --- !u!114 &8147258222803021341
@@ -242,7 +243,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   airSpeed: 1
-  jumpPower: 3.2
+  jumpPower: 3.8
   jumpCooldown: 2
   slopeCheckDistance: 0.5
   groundLayer:
@@ -268,9 +269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71fe7fe138b144c4da5ad5b238ce80fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackCooldown: 0.5
-  range: 2.3
-  colliderDistance: 0.145
+  attackCooldown: 1.2
   damage: 1
   swordCollider: {fileID: 497458561087836925}
   enemyLayer:
@@ -357,6 +356,51 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0003004074, y: 0.005175352}
-  m_Size: {x: 0.1887867, y: 0.41806492}
+  m_Offset: {x: -0.0033051968, y: -0.09994769}
+  m_Size: {x: 0.1987791, y: 0.1987791}
   m_Direction: 0
+--- !u!61 &8875559042671341111
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3574639086349442716}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.008144975, y: 0.08633685}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.5, y: 1.5}
+    newSize: {x: 5.12, y: 2.56}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.16096473, y: 0.25870466}
+  m_EdgeRadius: 0
