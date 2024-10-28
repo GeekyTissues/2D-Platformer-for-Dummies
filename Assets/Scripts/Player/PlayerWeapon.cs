@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class PlayerWeapon : MonoBehaviour
 {
+    /// <summary>
+    /// Controls the player's weapon.
+    /// </summary>
+
     [SerializeField] private int damage;
     [SerializeField] private BoxCollider2D swordCollider;
 

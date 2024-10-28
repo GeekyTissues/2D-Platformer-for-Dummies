@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    /// <summary>
+    /// Controls the main menu. Functions for when any of the main menu options are clicked.
+    /// </summary>
+
     public void StartGame()
     {
         SceneManager.LoadScene(1);

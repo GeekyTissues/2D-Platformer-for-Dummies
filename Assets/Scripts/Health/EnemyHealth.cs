@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
+    /// <summary>
+    /// Controls the enemy health attribute. Contains a take damage and stun damage function
+    /// </summary>
+    
     [Header("Health")]
     [SerializeField] private float startingHealth;
     public float currentHealth { get; private set; }
@@ -71,10 +75,10 @@ public class EnemyHealth : MonoBehaviour
         GetComponent<EnemyPatrol>().enabled = true;
     }
 
-    public void AddHealth(float _value)
-    {
-        currentHealth = Mathf.Clamp(currentHealth + _value, 0, startingHealth);
-    }
+    //public void AddHealth(float _value)
+    //{
+    //    currentHealth = Mathf.Clamp(currentHealth + _value, 0, startingHealth);
+    //}
 
     #region SFX
     private void TakeDamageSound()

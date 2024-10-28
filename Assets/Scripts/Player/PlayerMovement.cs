@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    /// <summary>
+    /// Controls the player movement. Checks if the player is grounded, can jump or is on a slope. Affects the player's movement speed and jumping 
+    /// </summary>
+
     #region Variables and References
     [Header("Movement")]
     [SerializeField] private float speed;
@@ -119,7 +123,7 @@ public class PlayerMovement : MonoBehaviour
        
     }
 
-
+    //Checks if player can jump
     private bool CanJump()
     {
         if (IsGrounded())
@@ -143,7 +147,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-
+    //Checks if player is on the ground
     private bool IsGrounded()
     {
         RaycastHit2D raycastHit = Physics2D.BoxCast(cc.bounds.center, cc.size, 0, Vector2.down, 0.1f, groundLayer);
@@ -151,6 +155,7 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+    //Flips the character model to face the direction it is moving in
     private void Flip()
     {
         Vector3 currentScale = transform.localScale;
@@ -164,6 +169,7 @@ public class PlayerMovement : MonoBehaviour
 
 
     #region Slopes
+    //Checks if the player is on a slope
     private void SlopeCheck()
     {
         Vector2 checkPos = transform.position - new Vector3(0.0f, colliderSize.y / 2);
@@ -171,6 +177,7 @@ public class PlayerMovement : MonoBehaviour
         SlopeCheckVertical(checkPos);
     }
 
+    //Checks for the angle of the slope horizontally
     private void SlopeCheckHorizontal(Vector2 checkPos)
     {
         RaycastHit2D slopeHitFront = Physics2D.Raycast(checkPos, transform.right, slopeCheckDistance, groundLayer);
@@ -193,6 +200,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    //Checks for the angle of the slope vertically
     private void SlopeCheckVertical(Vector2 checkPos)
     {
         RaycastHit2D hit = Physics2D.Raycast(checkPos, Vector2.down, slopeCheckDistance, groundLayer);
@@ -214,6 +222,7 @@ public class PlayerMovement : MonoBehaviour
             Debug.DrawRay(hit.point, hit.normal, Color.green);
         }
 
+        //Changes material of player model if the player is on a slope and not moving
         if (isOnSlope && horizontalInput == 0.0f)
         {
             body.sharedMaterial = fullFriction;

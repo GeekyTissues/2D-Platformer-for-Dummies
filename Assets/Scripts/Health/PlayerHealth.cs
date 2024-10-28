@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
+    /// <summary>
+    /// Script controls the player's health attribute. Contains function for the player taking damage, getting iframes, and regaining health.
+    /// </summary>
+
     [Header ("Health")]
     [SerializeField] private float startingHealth;
     public float currentHealth { get; private set; }
@@ -17,6 +21,7 @@ public class PlayerHealth : MonoBehaviour
     [Header("SFX")]
     [SerializeField] private AudioClip takeDamageSound;
 
+    //Components
     private Animator anim;
     private PlayerRespawn respawn;
     private UIManager uiManager;
@@ -41,6 +46,7 @@ public class PlayerHealth : MonoBehaviour
         }
         else
         {
+            //If player has 0 health and has not died yet
             if (!dead)
             {
                 anim.SetTrigger("die");

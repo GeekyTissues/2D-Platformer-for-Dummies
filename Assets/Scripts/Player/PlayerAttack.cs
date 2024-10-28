@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
+    /// <summary>
+    /// Controls the player attack. 
+    /// </summary>
+
     [Header("Attack Parameters")]
     [SerializeField] private float attackCooldown;
 
@@ -14,8 +18,10 @@ public class PlayerAttack : MonoBehaviour
     [Header("Player Layer")]
     [SerializeField] private LayerMask enemyLayer;
 
+    //Primitives
     private float attackTimer = Mathf.Infinity;
 
+    //Components
     private Animator anim;
     private EnemyHealth enemyHealth;
 

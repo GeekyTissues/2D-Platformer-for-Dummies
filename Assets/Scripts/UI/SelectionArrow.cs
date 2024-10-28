@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public class SelectionArrow : MonoBehaviour
 {
+    /// <summary>
+    /// Controls the selection for the pause screen, main menu, level completed screen and game over screen. 
+    /// </summary>
+
     [SerializeField] private RectTransform[] options;
     [SerializeField] private AudioClip changeSound; // Arrow moving
     [SerializeField] private AudioClip interactSound; // Selections

@@ -6,6 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
+    /// <summary>
+    /// Controls the game UI.
+    /// </summary>
+
+
     [SerializeField] private GameObject gameOverScreen;
     [SerializeField] private AudioClip gameOverSound;
     [SerializeField] private GameObject lvlCompleteScreen;
@@ -44,28 +49,33 @@ public class UIManager : MonoBehaviour
     }
 
     #region Game Over
+    //Turns on the game over screen
     public void GameOver()
     {
         gameOverScreen.SetActive(true);
         SoundManager.instance.PlaySound(gameOverSound);
     }
 
+    //Reset game status to last checkpoint
     public void ReloadCheckpoint()
     {
         gameOverScreen.SetActive(false);
         
     }
 
+    //Reload entire scene
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
+    //Load Main Menu Scene
     public void MainMenu()
     {
         SceneManager.LoadScene(0);
     }
 
+    //If playing in editor, quits to editor. If in build, quits application
     public void Quit()
     {
         Application.Quit();
@@ -77,6 +87,8 @@ public class UIManager : MonoBehaviour
     #endregion
 
     #region Pause
+
+    //Activates pause menu
     public void PauseGame(bool status)
     {
         pauseScreen.SetActive(status);
@@ -85,23 +97,27 @@ public class UIManager : MonoBehaviour
         
     }
 
+    //Lowers sound volume by 20 percent
     public void SoundVolume()
     {
         SoundManager.instance.ChangeSoundVolume(0.2f);
     }
 
+    //Lowers music volume by 20 percent
     public void MusicVolume()
     {
         SoundManager.instance.ChangeSoundVolume(0.2f);
     }
     #endregion
 
+    //Activates the level complete screen
     #region Level Completed
     public void LevelCompleted()
     {
         lvlCompleteScreen.SetActive(true);
     }
 
+    //Loads the next scene
     public void Continue()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
