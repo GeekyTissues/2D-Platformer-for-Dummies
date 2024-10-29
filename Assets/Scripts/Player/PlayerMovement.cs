@@ -40,12 +40,14 @@ public class PlayerMovement : MonoBehaviour
     
     //Primitives
     private float horizontalInput;
+    //Slopes
     private float slopeDownAngle;
     private bool isOnSlope;
     private float slopeDownAngleOld;
+    private float slopeSideAngle;
+    //Movement
     private bool facingRight = true;
     private float jumpTimer;
-    private float slopeSideAngle;
     private bool isJumping = false;
 
     //Vectors
@@ -122,6 +124,7 @@ public class PlayerMovement : MonoBehaviour
 
        
     }
+    #region Movement Checks
 
     //Checks if player can jump
     private bool CanJump()
@@ -129,13 +132,24 @@ public class PlayerMovement : MonoBehaviour
         if (IsGrounded())
         {
             return true;
-        }
-        else
+        } else
         {
             return false;
         }
     }
 
+    
+
+    //Checks if player is on the ground
+    private bool IsGrounded()
+    {
+        RaycastHit2D raycastHit = Physics2D.BoxCast(cc.bounds.center, cc.size, 0, Vector2.down, 0.1f, groundLayer);
+        return raycastHit.collider != null;
+    }
+    #endregion
+
+
+    #region Secondary Movement
     private void Jump()
     {
         if (CanJump())
@@ -146,15 +160,6 @@ public class PlayerMovement : MonoBehaviour
             SoundManager.instance.PlaySound(jumpSound);
         }
     }
-
-    //Checks if player is on the ground
-    private bool IsGrounded()
-    {
-        RaycastHit2D raycastHit = Physics2D.BoxCast(cc.bounds.center, cc.size, 0, Vector2.down, 0.1f, groundLayer);
-        return raycastHit.collider != null;
-
-    }
-
     //Flips the character model to face the direction it is moving in
     private void Flip()
     {
@@ -165,6 +170,7 @@ public class PlayerMovement : MonoBehaviour
         facingRight = !facingRight;
     }
 
+    #endregion
     #endregion
 
 
