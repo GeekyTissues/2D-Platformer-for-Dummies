@@ -18,7 +18,7 @@ public class UIManager : MonoBehaviour
     [Header("Pause")]
     [SerializeField] private GameObject pauseScreen;
     
-    private GameObject player;
+    [SerializeField] private GameObject player;
     private PlayerRespawn playerRespawn;
     private PlayerHealth health;
 
@@ -29,7 +29,6 @@ public class UIManager : MonoBehaviour
         lvlCompleteScreen.SetActive(false);
         playerRespawn = gameOverScreen.GetComponent<PlayerRespawn>();
         health = gameOverScreen.GetComponent<PlayerHealth>();
-        player = GameObject.FindWithTag("Player");
     }
 
     private void Update()
@@ -60,7 +59,7 @@ public class UIManager : MonoBehaviour
     public void ReloadCheckpoint()
     {
         gameOverScreen.SetActive(false);
-        
+        player.GetComponent<PlayerRespawn>().CheckRespawn();  
     }
 
     //Reload entire scene

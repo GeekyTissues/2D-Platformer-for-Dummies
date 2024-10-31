@@ -48,12 +48,14 @@ public class RangedEnemy : MonoBehaviour
         {
             anim.SetBool("idle", false);
             player = GetComponentInChildren<PlayerDetection>().Player;
-            if(player.transform.localPosition.x < transform.localPosition.x && facingRight)
+            if(player.transform.position.x < transform.position.x && facingRight)
             {
-                Flip();}
-            if (player.transform.localPosition.x > transform.localPosition.x && !facingRight)
+                Flip();
+            }
+            if (player.transform.position.x > transform.position.x && !facingRight)
             {
-                Flip();}
+                Flip();
+            }
             if (cooldownTimer > attackCooldown)
             {
                 anim.SetTrigger("attack");

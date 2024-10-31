@@ -20,17 +20,17 @@ public class NewEnemyHealth : MonoBehaviour
     [SerializeField] private AudioClip takeDamageSound;
 
     [Header("Components")]
-    [SerializeField] private NewMeleeEnemy meleeEnemy;
-    [SerializeField] private RangedEnemy rangedEnemy;
     [SerializeField] private BoxCollider2D swordCollider;
 
     private Animator anim;
+    private GameObject enemy;
 
     private void Awake()
     {
         currentHealth = startingHealth;
         spriteRend = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+        enemy = gameObject;
     }
 
     //Takes health away from enemy health pool and stuns the enemy from attacking or moving
@@ -50,8 +50,6 @@ public class NewEnemyHealth : MonoBehaviour
             {
                 anim.SetTrigger("dead");
                 dead = true;
-                meleeEnemy.enabled = false;
-                rangedEnemy.enabled = false;
                 Destroy(gameObject, 0.40f); //Despawns enemy
             }
         }

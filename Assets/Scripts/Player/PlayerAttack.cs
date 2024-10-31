@@ -20,6 +20,7 @@ public class PlayerAttack : MonoBehaviour
 
     //Primitives
     private float attackTimer = Mathf.Infinity;
+    private bool canDoubleAttack = false;
 
     //Components
     private Animator anim;
@@ -45,5 +46,10 @@ public class PlayerAttack : MonoBehaviour
             attackTimer = 0;
             anim.SetTrigger("attack");
         }
+    }
+
+    private void AbleToDoubleAttack()
+    {
+        
     }
 }
